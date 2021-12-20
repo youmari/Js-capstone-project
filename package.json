@@ -18,7 +18,7 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
   },
-  "name": "Js-capstone-project",
+  "name": "Capstone",
   "description": "",
   "version": "1.0.0",
   "private": true,

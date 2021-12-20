@@ -27,7 +27,6 @@ body {
 .link-lists {
   display: flex;
   list-style: none;
-  text-decoration: none;
 }
 
 .link-lists > *:not(:last-child) {
