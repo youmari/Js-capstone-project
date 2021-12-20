@@ -1,10 +1,11 @@
 import './css/style.css';
-import getData from './js/api';
+import getData, { getLikes } from './js/api';
 import createCardItem from './js/createCardItem';
 
 const renderItems = async () => {
-  const data = await getData();
-  data.forEach((item) => createCardItem(item));
+  const itemsData = await getData();
+  const likesData = await getLikes();
+  itemsData.forEach((item, index) => createCardItem(item, likesData[index]));
 };
 
 renderItems();
