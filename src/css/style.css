@@ -59,7 +59,7 @@ footer {
 
 .grid-cards-container {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 6em;
 }
 
@@ -80,4 +80,14 @@ footer {
   font-family: var(--main-font);
   font-size: 1.2em;
   color: #fff;
+}
+
+.comment-btn {
+  border: 2px solid #fff;
+  padding: 0.4em;
+  font-family: var(--main-font);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
 }
