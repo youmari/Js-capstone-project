@@ -60,7 +60,7 @@ footer {
 .grid-cards-container {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  margin-top: 5em;
+  margin-top: 6em;
 }
 
 .item {
@@ -78,6 +78,6 @@ footer {
 
 .card-title {
   font-family: var(--main-font);
-  font-size: 1em;
+  font-size: 1.2em;
   color: #fff;
 }
