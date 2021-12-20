@@ -91,3 +91,14 @@ footer {
   cursor: pointer;
   background-color: transparent;
 }
+
+.comment-and-like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 1em;
+}
+
+.p-like {
+  color: #fff;
+}
