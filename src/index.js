@@ -14,12 +14,28 @@ document.addEventListener('click', async (e) => {
   }
 })
 
+const loading = () => {
+  const cardsContainer = document.querySelector('.grid-cards-container')
+  const loadDiv = document.createElement('div');
+  const mask = document.createElement('div');
+  loadDiv.classList.add('loading');
+  mask.classList.add('mask');
+  cardsContainer.append(mask ,loadDiv);
+}
+
+const removeLoding = () => {
+  document.querySelector('.loading').remove()
+  document.querySelector('.mask').remove()
+}
+
 const renderItems = async () => {
+  loading();
   let index = 0;
   const itemsData = await getData();
   const likesData = await getLikes();
   displayTvShownumbers(itemsData);
   likesData.sort((a,b) =>  a.item_id - b.item_id)
+  removeLoding();
   for (let i = 0; i < itemsData.length; i++) {
     if (likesData[index] !== undefined && itemsData[i].id == likesData[index].item_id) {
       createCardItem(itemsData[i],likesData[index])  
