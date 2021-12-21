@@ -21,7 +21,7 @@ const createCardItem = (item, itemLike = { likes: 0 }) => {
   commentBtn.classList.add('comment-btn');
   commentBtn.textContent = 'Comment';
 
-  pLikesTag.textContent = `a${itemLike.likes} likes`;
+  pLikesTag.textContent = `${itemLike.likes} likes`;
   cardImage.src = item.image.medium;
   cardTitle.textContent = item.name;
 };
