@@ -1,19 +1,21 @@
 const cardContainer = document.querySelector('.grid-cards-container');
 
-const createCardItem = (item, itemLike = { likes: 0 }) => {
+const createCardItem = (item, itemLike = {likes:0}) => {
   const cardElement = document.createElement('article');
   const cardImage = document.createElement('img');
   const cardTitle = document.createElement('h4');
   const commentAndLikeDiv = document.createElement('div');
   const commentBtn = document.createElement('button');
   const pLikesTag = document.createElement('p');
+  const likeHeart = document.createElement('div');
 
-  cardElement.id = item.id;
   cardContainer.append(cardElement);
   cardElement.append(cardImage, cardTitle, commentAndLikeDiv);
   cardElement.classList.add('item');
   cardTitle.classList.add('card-title');
-  commentAndLikeDiv.append(pLikesTag, commentBtn);
+  likeHeart.classList.add('heart');
+  likeHeart.id = item.id;
+  commentAndLikeDiv.append(likeHeart ,pLikesTag, commentBtn);
   pLikesTag.classList.add('p-like');
   commentAndLikeDiv.classList.add('comment-and-like');
   commentBtn.classList.add('comment-btn');
