@@ -1,20 +1,29 @@
 const url1 = 'https://api.tvmaze.com/shows';
+const commentsEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/comments';
+const popup = document.querySelector('.movie-popup');
+
+const get = (url) => fetch(url)
+  .then((res) => res.json())
+  .then((data) => data)
+  .then((error) => error);
 const fetchMovieData = async (movieId) => {
-  const response = await fetch(`${url1}/${movieId}`)
-    .then((res) => res.json())
-    .then((data) => data)
-    .then((error) => error);
+  const response = await get(`${url1}/${movieId}`);
   return response;
+};
+const fetchMovieComments = async (movieId) => {
+  const response = await get(`${commentsEndpoint}?item_id=${movieId}`);
+  return response;
+};
+const displayMovieComments = (data) => {
+  popup.querySelector('.comments').innerHTML = data;
 };
 const enableClosePopup = () => {
   document.querySelector('#close-popup').addEventListener('click', () => {
-    const popup = document.querySelector('.movie-popup');
     popup.style.display = 'none';
     popup.innerHTML = '';
   });
 };
 const displayMoviePopup = (movieId) => {
-  const popup = document.querySelector('.movie-popup');
   popup.innerHTML = `Fetching data...<br>
   <span id="close-popup">X</span>`;
   fetchMovieData(movieId).then((data) => {
@@ -40,8 +49,25 @@ const displayMoviePopup = (movieId) => {
         </td>
       </tr>
     </table>
+    <h3>
+    Comments (<span class="total-comments">0</span>)
+    </h3>
+    <ul class="comments">
+      fetching comments...
+    </ul>
     `;
     enableClosePopup();
+    fetchMovieComments().then((data) => {
+      if (!data.error) {
+        let comments = '';
+        data.forEach((comment) => {
+          comments += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
+        });
+        displayMovieComments(comments);
+      } else {
+        displayMovieComments('No comments have been posted yet. Be the first to write something...');
+      }
+    });
   });
   popup.style.display = 'block';
   enableClosePopup();
