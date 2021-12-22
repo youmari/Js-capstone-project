@@ -1,8 +1,10 @@
 /* eslint-disable */
 import './css/style.css';
+import './css/comment.css';
 import getData, { addLikes, getLikes } from './js/api';
 import createCardItem from './js/createCardItem';
 import displayTvShownumbers from './js/itemsCounter';
+import enableComments from './js/CommentPopup';
 
 document.addEventListener('click', async (e) => {
   if (e.target.matches('.heart')) {
@@ -30,4 +32,6 @@ const renderItems = async () => {
   }
 }    
 
-renderItems();
+renderItems().then((data) =>{
+  enableComments();
+});

@@ -19,6 +19,7 @@ const createCardItem = (item, itemLike = { likes: 0 }) => {
   pLikesTag.classList.add('p-like');
   commentAndLikeDiv.classList.add('comment-and-like');
   commentBtn.classList.add('comment-btn');
+  commentBtn.setAttribute('movie_id', item.id);
   commentBtn.textContent = 'Comment';
 
   pLikesTag.textContent = `${itemLike.likes} likes`;
