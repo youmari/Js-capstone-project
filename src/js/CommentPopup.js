@@ -1,3 +1,5 @@
+import updateTotalCommentsCount, { fetchMovieComments } from './commentCounter';
+
 const url1 = 'https://api.tvmaze.com/shows';
 const commentsEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/comments';
 const popup = document.querySelector('.movie-popup');
@@ -27,10 +29,7 @@ const fetchMovieData = async (movieId) => {
   const response = await get(`${url1}/${movieId}`);
   return response;
 };
-const fetchMovieComments = async (movieId) => {
-  const response = await get(`${commentsEndpoint}?item_id=${movieId}`);
-  return response;
-};
+
 const displayMovieComments = (data) => {
   popup.querySelector('.comments').innerHTML = data;
 };
@@ -40,6 +39,7 @@ const enableClosePopup = () => {
     popup.innerHTML = '';
   });
 };
+
 const showComments = (movieId) => {
   fetchMovieComments(movieId).then((data) => {
     if (!data.error) {
@@ -56,6 +56,7 @@ const showComments = (movieId) => {
 const displayMoviePopup = (movieId) => {
   popup.innerHTML = `Fetching data...<br>
   <span id="close-popup">X</span>`;
+
   fetchMovieData(movieId).then((data) => {
     popup.innerHTML = `
     <span id="close-popup">X</span>
@@ -92,8 +93,11 @@ const displayMoviePopup = (movieId) => {
       <button type="submit">Submit</button>
     </form>
     `;
+
     enableClosePopup();
     showComments(movieId);
+    updateTotalCommentsCount(movieId);
+
     const form = popup.querySelector('.com-form');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -105,10 +109,14 @@ const displayMoviePopup = (movieId) => {
         comment: msg,
       }).then(() => {
         showComments(movieId);
+        updateTotalCommentsCount(movieId);
         form.reset();
       });
     });
   });
+  // When content has been loaded to DOM
+  // display popup. From none  to block for visibility
+  // and enable functionality of the close button
   popup.style.display = 'block';
   enableClosePopup();
 };
