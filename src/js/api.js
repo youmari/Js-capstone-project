@@ -1,6 +1,6 @@
 /* eslint-disable */
 const url1 = 'https://api.tvmaze.com/shows';
-const url2 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/likes';
+const url2 = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/S9fEVqbMElaitYd6wgYigit/likes';
 
 const fetchData = (url, CostumSettings = {}) => {
   const response = fetch(url, CostumSettings)
