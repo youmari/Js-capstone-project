@@ -10,16 +10,13 @@
 - CSS
 - JAVASCRIPT
 - WEBPACK
+- Jest
 
 ## Live demo
 [Live Demo Link](https://youmari.github.io/Js-capstone-project/dist/)
 
 ## Getting Started
-
-** Follow the instructions for using this webapp.**
-
-
-To get a local copy up and running follow these simple example steps.
+## To run the website locally follow the following steps:
 
 ### Setup
 - clone the project to your local machine
