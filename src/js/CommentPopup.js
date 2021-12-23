@@ -1,4 +1,4 @@
-import updateTotalCommentsCount, { fetchMovieComments } from './commentCounter';
+import { fetchMovieComments } from './commentCounter';
 
 const url1 = 'https://api.tvmaze.com/shows';
 const commentsEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/comments';
@@ -96,7 +96,7 @@ const displayMoviePopup = (movieId) => {
 
     enableClosePopup();
     showComments(movieId);
-    updateTotalCommentsCount(movieId);
+    // updateTotalCommentsCount(movieId);
 
     const form = popup.querySelector('.com-form');
     form.addEventListener('submit', (e) => {
@@ -109,7 +109,7 @@ const displayMoviePopup = (movieId) => {
         comment: msg,
       }).then(() => {
         showComments(movieId);
-        updateTotalCommentsCount(movieId);
+        // updateTotalCommentsCount(movieId);
         form.reset();
       });
     });
