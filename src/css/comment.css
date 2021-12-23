@@ -34,6 +34,7 @@ h2 {
 
 .comments {
   margin-left: 90px;
+  list-style-type: none;
 }
 
 .comment-title {

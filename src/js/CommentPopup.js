@@ -87,8 +87,8 @@ const displayMoviePopup = (movieId) => {
     </ul>
     <form class="com-form">
       <h2>Add a comment</h2>
-      <input type="text" name="username" placeholder="Your name">
-      <textarea placeholder="Your insights" name="comment"></textarea>
+      <input type="text" name="username" placeholder="Your name" required>
+      <textarea placeholder="Your insights" name="comment" required minlength="1"></textarea>
       <button type="submit">Submit</button>
     </form>
     `;
