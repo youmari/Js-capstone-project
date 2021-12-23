@@ -96,7 +96,6 @@ const displayMoviePopup = (movieId) => {
 
     enableClosePopup();
     showComments(movieId);
-    // updateTotalCommentsCount(movieId);
 
     const form = popup.querySelector('.com-form');
     form.addEventListener('submit', (e) => {
