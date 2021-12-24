@@ -27,7 +27,7 @@ test('items counter check if num of comments 0 ', () => {
 
 test('items counter check if data is invalid ', () => {
   const string = 'test';
-  
+
   const counter = commentCounter(string);
 
   expect(counter).toBe('invalid');

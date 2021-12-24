@@ -12,7 +12,7 @@ test('items counter check ', () => {
 });
 
 test('items counter check if the there no data ', () => {
-  const arr = []
+  const arr = [];
 
   const counter = itemsCounter(arr);
 
