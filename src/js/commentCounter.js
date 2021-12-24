@@ -19,7 +19,7 @@ const updateTotalCommentsCount = (movieId) => {
     popup.querySelector('.total-comments').innerHTML = total;
   });
 };
-const commentCounter = (data) => data.length;
+const commentCounter = (data) => typeof(data) === 'object' ? data.length : 'invalid';
 
 document.addEventListener('click', async (e) => {
   if (e.target.matches('.comment-btn')) {
